@@ -44,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(title: const Text('Météo')),
       body: RefreshIndicator(
         onRefresh: _refreshWeatherData,
+        color: Colors.blue,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: ListView(
@@ -55,7 +56,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 8),
                 weatherProvider.isLoadingUserLocation
-                    ? const Center(child: CircularProgressIndicator())
+                    ? const Center(
+                        child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+                      ))
                     : weatherProvider.userLocationWeather == null
                         ? const Center(
                             child: Text('Aucune donnée pour votre emplacement'))

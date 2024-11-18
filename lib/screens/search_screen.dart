@@ -49,7 +49,10 @@ class SearchScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 weatherProvider.isLoadingSearch
-                    ? const Center(child: CircularProgressIndicator())
+                    ? const Center(
+                        child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+                      ))
                     : weatherProvider.searchedCityWeather == null
                         ? Center(
                             child: Text(
