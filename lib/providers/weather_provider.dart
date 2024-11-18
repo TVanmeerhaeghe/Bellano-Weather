@@ -24,7 +24,6 @@ class WeatherProvider with ChangeNotifier {
     loadFavorites();
   }
 
-  // Méthode pour rafraîchir les données météo de l'utilisateur et des favoris
   Future<void> refreshWeatherData() async {
     await loadUserLocationWeather();
     await updateFavoriteWeathers();
